@@ -7,18 +7,19 @@ import javax.annotation.Generated;
     date = "2023-02-08T11:11:15+0800",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 1.8.0_191 (Oracle Corporation)"
 )
-class UserMappingImpl implements UserMapping {
+class ExtendMappingImpl implements ExtendMapping {
 
     @Override
-    public UserPO dtoToPo(UserDTO userDTO) {
-        if ( userDTO == null ) {
+    public DestObj map(Child child) {
+        if ( child == null ) {
             return null;
         }
 
-        UserPO userPO = new UserPO();
+        DestObj destObj = new DestObj();
 
-        userPO.setName( userDTO.getName() );
+        destObj.setName( child.getName() );
+        destObj.setCode( child.getCode() );
 
-        return userPO;
+        return destObj;
     }
 }
